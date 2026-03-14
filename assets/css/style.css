@@ -27,15 +27,15 @@ html.dark {
   --color-bg-muted: #334155;
   --color-text-primary: #f1f5f9;
   --color-text-body: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-border: #334155;
+  --color-text-muted: #a1b1c7;
+  --color-border: #475569;
   --color-accent: #38bdf8;
   --color-conservative-bg: #1e3a5f;
   --color-conservative: #93c5fd;
   --color-progressive-bg: #4c1d1d;
   --color-progressive: #fca5a5;
   --color-neutral-bg: #1e293b;
-  --color-neutral: #94a3b8;
+  --color-neutral: #a1b1c7;
   --color-shadow: rgba(0, 0, 0, 0.32);
 }
 
@@ -157,9 +157,10 @@ body {
 .news-list-item {
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  padding: 1.25rem;
+  padding: 1.25rem 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background: var(--color-bg);
+  box-shadow: 0 1px 3px var(--color-shadow);
 }
 
 .news-list-item:hover {
@@ -280,7 +281,7 @@ body {
 
 .news-content blockquote {
   border: none;
-  border-left: 4px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
   background: var(--color-bg-subtle);
   padding: 0.75rem 1.25rem;
   margin: 1rem 0;
@@ -318,6 +319,19 @@ hr,
 .news-content li {
   margin-bottom: 0.35rem;
   font-size: 0.95rem;
+}
+
+.news-content li a {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  background: var(--color-bg-muted);
+  transition: background-color 0.15s ease, background-size 0.25s ease;
+}
+
+.news-content li a:hover {
+  background: var(--color-bg-subtle);
 }
 
 .news-content a {
