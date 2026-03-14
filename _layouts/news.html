@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="news-article">
+  <header class="news-header">
+    <h1>{{ page.title }}</h1>
+    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+  </header>
+
+  <div class="news-content">
+    {{ content }}
+  </div>
+
+  <nav class="news-nav">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="nav-prev">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="nav-next">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </nav>
+</article>

@@ -1,0 +1,28 @@
+---
+layout: default
+title: Home
+---
+
+<ul class="news-list">
+  {% for post in paginator.posts %}
+  <li class="news-list-item">
+    <span class="news-list-date">{{ post.date | date: "%Y-%m-%d (%a)" }}</span>
+    <a href="{{ post.url | relative_url }}" class="news-list-link">{{ post.title }}</a>
+    {% if post.headlines %}
+    <div class="news-list-headlines">{{ post.headlines }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+  {% endif %}
+  <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+  {% endif %}
+</div>
+{% endif %}
