@@ -28,14 +28,6 @@
 | 사이트 | Jekyll + GitHub Pages |
 | 자동화 | GitHub Actions (매일 오전 7시 KST) |
 
-## 로컬 실행
-
-```bash
-gem install bundler jekyll
-bundle install
-bundle exec jekyll serve
-```
-
 ## 라이선스
 
 뉴스 요약 콘텐츠의 원본 기사 저작권은 각 매체에 있습니다.
