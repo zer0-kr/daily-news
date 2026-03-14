@@ -9,7 +9,12 @@ title: Home
     <span class="news-list-date">{{ post.date | date: "%Y-%m-%d (%a)" }}</span>
     <a href="{{ post.url | relative_url }}" class="news-list-link">{{ post.title }}</a>
     {% if post.headlines %}
-    <div class="news-list-headlines">{{ post.headlines }}</div>
+    <ol class="news-list-headlines">
+      {% assign items = post.headlines | split: " | " %}
+      {% for item in items %}
+        <li>{{ item | remove_first: "1. " | remove_first: "2. " | remove_first: "3. " | remove_first: "4. " | remove_first: "5. " }}</li>
+      {% endfor %}
+    </ol>
     {% endif %}
   </li>
   {% endfor %}
@@ -18,11 +23,11 @@ title: Home
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; 최신</a>
   {% endif %}
-  <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  <span class="pagination-current">{{ paginator.page }} / {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+    <a href="{{ paginator.next_page_path | relative_url }}">이전 &rarr;</a>
   {% endif %}
 </div>
 {% endif %}
